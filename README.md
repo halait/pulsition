@@ -8,7 +8,7 @@ Pulsition simulates physics using a local solver to solve pairwise contraints. M
 Download and unzip the master branch. In the unzipped folder you will find `physics.js`, include it in your website using the `script` tag.
 
 ## Glossary
-Body: a rigid body that Pulsition attempts to simulate.
+Body: a rigid body that Pulsition attempts to simulate.\
 Body reference: a uniquely identifying number used to refer to a specific body.
 <!--
 ## Basic tutorial
