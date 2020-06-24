@@ -9,6 +9,7 @@ Download and unzip the master branch. In the unzipped folder you will find `phys
 
 ## Glossary
 Body: a rigid body that Pulsition attempts to simulate.
+Body reference: a uniquely identifying number used to refer to a specific body.
 <!--
 ## Basic tutorial
 Pulsition is implemented as one very large object called `pw`. Many variables are set to sensible defaults such as `G` the number that represents the acceleration of gravity. To set `G` to 0.1 we can simply write:
@@ -46,7 +47,7 @@ pw.create(def)
 ##### Parameters
 `def`: the [body definition](#body-definition).
 ##### Return value
-The [body reference](#body-reference) of the body created.
+The body reference of the body created.
 
 ### `pw.createContacts()`
 The `pw.createContacts()` method creates collision constraints between the bodies specified.
@@ -55,7 +56,7 @@ The `pw.createContacts()` method creates collision constraints between the bodie
 pw.createContacts(bodyReference, groups)
 ```
 ##### Parameters
-`bodyReference`: the [body reference](#body-reference) of the body with which collision constraints will be created.
+`bodyReference`: the body reference of the body with which collision constraints will be created.
 `groups`: an array of numbers, for each body with a `group` contained in the `groups` array a collision contraint will be created. 
 ##### Return value
 None.
@@ -103,8 +104,5 @@ It may contain the following properties:
 `width`: a number that specifies the width of the body, it must be a positive.
 
 `vertices`: a 2D array that specifies the positions of the vertices of the body. The `length` of each subarray must be equal to `2`, each element a number that specifies a position in the x and y axis respectively. If the `form` property of the body definition is equal to `pw.PLANE_FORM` then the length of `vertices` must be equal to `2`, each subarray specifying the position of the two ends of the body. If the `form` property of the body definition is equal to `pw.POLYGON_FORM` then the length of `vertices` must be more than `3`, each subarray specifying the position of each vertex of the body in counter-clockwise direction. If the `form` property of the body definition is equal to `pw.AABB_FORM` then the length of `vertices` must be equal to `2`, each subarray specifying the position of the minimum and maximum vertex respectively.
-
-### Body reference
-The body reference is a uniquely identifying number used to refer to a specific body. It is returned by the `pw.create()` method.
 
 If you want to discuss or use this repository please contact me.
