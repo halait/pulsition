@@ -56,7 +56,7 @@ The `pw.createContacts()` method creates collision constraints between the bodie
 pw.createContacts(bodyReference, groups)
 ```
 ##### Parameters
-`bodyReference`: the body reference of the body with which collision constraints will be created.
+`bodyReference`: the body reference of the body with which collision constraints will be created.\
 `groups`: an array of numbers, for each body with a `group` contained in the `groups` array a collision contraint will be created. 
 ##### Return value
 None.
