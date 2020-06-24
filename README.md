@@ -65,24 +65,36 @@ pw.create(def)
 The body reference, used in all subsequent calls to any methods within `pw` to refer to the body created.
 
 ### Body Definition
-The body definition is the object that is passed to the `pw.create()` method to define the properties of the body being created. Any unrecognized properties are ignored. It must contain the following properties:\
-`form`: either `pw.CIRCLE_FORM`, `pw.PLANE_FORM`, `pw.POLYGON_FORM` or `pw.AABB_FORM`. `pw.CIRCLE_FORM` creates a circular body. `pw.PLANE_FORM` creates an obround body. `pw.POLYGON_FORM` is not fully supported. `pw.AABB_FORM` creates an axis-aligned bounding box that is not physically simulated. If `pw.CIRCLE_FORM` then `x`, `y` and `radius` must also be specified. If `pw.PLANE_FORM` then `width` and `vertices` must also be specified. If `pw.AABB_FORM` then `vertices` must also be specified. If `pw.POLYGON_FORM` then `vertices` must also be specified.\
-`type`: either `pw.MOVABLE_TYPE` or `pw.FIXED_TYPE`. `pw.MOVABLE_TYPE` specifies a normal body that can move. `pw.FIXED_TYPE` specifies a object that will never move, suitable for simulating massive objects like the earth. If `pw.MOVABLE_TYPE` then `density` must also be specified.\
-It may contain the following properties:\
-`density`: a number that specifies the density of the body, it must be postive.\
-`group`: a number that specifies the group of the body. Used to filter colliding pairs.\
-`userFloats`: a array of numbers. Can contain any numbers and be any length. The array can be retreived with `pw.getUserFloats()` and modified with `pw.setUserFloats()` though length cannot be changed after the body is created\
+The body definition is the object that is passed to the `pw.create()` method to define the properties of the body being created. Any unrecognized properties are ignored. It must contain the following properties:
+
+`form`: either `pw.CIRCLE_FORM`, `pw.PLANE_FORM`, `pw.POLYGON_FORM` or `pw.AABB_FORM`. `pw.CIRCLE_FORM` creates a circular body. `pw.PLANE_FORM` creates an obround body. `pw.POLYGON_FORM` is not fully supported. `pw.AABB_FORM` creates an axis-aligned bounding box that is not physically simulated. If `pw.CIRCLE_FORM` then `x`, `y` and `radius` must also be specified. If `pw.PLANE_FORM` then `width` and `vertices` must also be specified. If `pw.AABB_FORM` then `vertices` must also be specified. If `pw.POLYGON_FORM` then `vertices` must also be specified.
+
+`type`: either `pw.MOVABLE_TYPE` or `pw.FIXED_TYPE`. `pw.MOVABLE_TYPE` specifies a normal body that can move. `pw.FIXED_TYPE` specifies a object that will never move, suitable for simulating massive objects like the earth. If `pw.MOVABLE_TYPE` then `density` must also be specified.
+
+It may contain the following properties:
+
+`density`: a number that specifies the density of the body, it must be postive.
+
+`group`: a number that specifies the group of the body. Used to filter colliding pairs.
+
+`userFloats`: a array of numbers. Can contain any numbers and be any length. The array can be retreived with `pw.getUserFloats()` and modified with `pw.setUserFloats()` though length cannot be changed after the body is created.
+
 `staticFriction`: a number that is used to calculate the amount of static friction between two colliding pairs, it must be positive. The static friction between two bodies is calculated by the average of their `staticFriction`.
+
 `kineticFriction`: a number that is used to calculate the amount of kinetic friction between two colliding pairs, it must be positive. The kinetic friction between two bodies is calculated by the average of their `kineticFriction`.
+
 `linearVelocityResistance`: a number that specifies the amount of dampening applied to linear velocity of the body per time step. It must be greater than or equal to `0` and less than or equal to `1`. It is used to simulate things such as air resistance. The closer it is to `0` the more resistance will be applied. If `0` then the object will not move linearly.
+
 `rotationalVelocityResistance`: a number that specifies the amount of dampening applied to rotational velocity of the body per time step. It must be greater than or equal to `0` and less than or equal to `1`. It is used to simulate things such as rolling resistance. The closer it is to `0` the more resistance will be applied. If `0` then the object will not rotate.
 
+`x`: a number that specifies the position of the center of the body in the x-axis.
 
-`x`: a number that specifies the position of the center of the body in the x-axis.\
-`y`: a number that specifies the position of the center of the body in the y-axis.\
-`radius`: a number that specifies the radius of the body, it must be positive.\
-`width`: a number that specifies the width of the body, it must be a positive.\
-`vertices`: a 2D array that specifies the positions of the vertices of the body. The `length` of each subarray must be equal to `2`, each element a number that specifies a position in the x and y axis respectively. If the `form` property of the body definition is equal to `pw.PLANE_FORM` then the length of `vertices` must be equal to `2`, each subarray specifying the position of the two ends of the body. If the `form` property of the body definition is equal to `pw.POLYGON_FORM` then the length of `vertices` must be more than `3`, each subarray specifying the position of each vertex of the body in counter-clockwise direction. If the `form` property of the body definition is equal to `pw.AABB_FORM` then the length of `vertices` must be equal to `2`, each subarray specifying the position of the minimum and maximum vertex respectively.\
+`y`: a number that specifies the position of the center of the body in the y-axis.
 
+`radius`: a number that specifies the radius of the body, it must be positive.
+
+`width`: a number that specifies the width of the body, it must be a positive.
+
+`vertices`: a 2D array that specifies the positions of the vertices of the body. The `length` of each subarray must be equal to `2`, each element a number that specifies a position in the x and y axis respectively. If the `form` property of the body definition is equal to `pw.PLANE_FORM` then the length of `vertices` must be equal to `2`, each subarray specifying the position of the two ends of the body. If the `form` property of the body definition is equal to `pw.POLYGON_FORM` then the length of `vertices` must be more than `3`, each subarray specifying the position of each vertex of the body in counter-clockwise direction. If the `form` property of the body definition is equal to `pw.AABB_FORM` then the length of `vertices` must be equal to `2`, each subarray specifying the position of the minimum and maximum vertex respectively.
 
 If you want to discuss or use this repository please contact me.
