@@ -2,7 +2,7 @@
 A real-time rigid body 2D physics engine for the web. Development is still active and many features are being added including arbitrary convex polygons. Checkout my game at [https://buildhead.web.app/](https://buildhead.web.app/) to see it in action.
 
 ## Overview
-Pulsition simulates physics using a local solver to solve pairwise contraints. Many iterations are needed to solve competing constraints. Pulsition does not support variable-rate time steps. Only two shapes are currently supported Circle and Obround. Convex polygons are available but not completely supported. Axis-aligned bounding boxes are supported to observe the position of objects. Warm-starting is used by default to significantly reduce the number of iterations needed to solve competing constraints at the cost of accuracy. Speculative contacts are used by default to prevent tunneling also at the cost of accuracy. There are two main type of constraints supported collisions and joints. Colliding pairs can be filtered using groups. Joints can be motorized. Pulsition does not render graphics and there is no testing UI. I recommend using WebGL for graphics rendering. If you require basic rendering for testing, please contact me.
+Pulsition simulates physics using a local solver to solve pairwise contraints. Multiple iterations are used to solve competing constraints. Pulsition does not support variable-rate time steps. Only two shapes are currently supported Circle and Obround. Convex polygons are available but not completely supported. Axis-aligned bounding boxes are supported to observe the position of objects. Warm-starting is used by default to significantly reduce the number of iterations needed to solve competing constraints at the cost of accuracy. Speculative contacts are used by default to prevent tunneling also at the cost of accuracy. There are two main type of constraints supported collisions and joints. Colliding pairs can be filtered using groups. Joints can be motorized. Pulsition does not render graphics and there is no testing UI. I recommend using WebGL for graphics rendering. If you require basic rendering for testing, please contact me.
 
 ## Install
 Download and unzip the master branch. In the unzipped folder you will find `physics.js`, include it in your website using the `script` tag.
@@ -37,7 +37,6 @@ To create a body we call [`pw.create()`](#pw.create()) with one parameter, a [bo
  -->
 
 ## Very Partial Reference
-**The code is mostly self documenting, please refer to it when possible.**
 ### `pw.create()`
 The `pw.create()` method creates bodies that are simulated by Pulsition.
 #### Syntax
